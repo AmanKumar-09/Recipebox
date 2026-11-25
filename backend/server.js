@@ -8,7 +8,7 @@ import reviewRoutes from './routes/reviewRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 const app = express();
 // CLIENT_URL holds the allowed front-end URLs separated by commas
-app.use(cors({ origin: (process.env.CLIENT_URL || '').split(',').map(s => s.trim()) }));
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 app.get('/', (q, s) => s.send('RecipeBox API is running'));
 app.use('/api/auth', authRoutes);
