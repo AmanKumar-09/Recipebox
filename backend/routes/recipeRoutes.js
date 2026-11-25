@@ -1,0 +1,11 @@
+import { Router } from 'express';
+import { home, list, getOne, create, update, remove } from '../controllers/recipeController.js';
+import { auth } from '../middleware/auth.js';
+const router = Router();
+router.get('/home', home);
+router.get('/', list);
+router.get('/:id', getOne);
+router.post('/', auth, create);
+router.put('/:id', auth, update);
+router.delete('/:id', auth, remove);
+export default router;
